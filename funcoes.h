@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+
 typedef struct {
     int prioridade;
     char categoria[100];

@@ -1,4 +1,4 @@
-#include "proj.h"
+#include "funcoes.h"
 #include <stdio.h>
 
 

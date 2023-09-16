@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "proj.h"
+#include "funcoes.h"
 
 int main (){
     int cod;

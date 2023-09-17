@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 typedef struct {
     int prioridade;
     // Mudei o char para wchar_t, para que o programa aceite caracteres especiais

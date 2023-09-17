@@ -12,13 +12,13 @@ int criarTarefa(ListaDeTarefas *lt) {
         // Limpando o buffer do teclado antes de ler a categoria
         while (getchar() != '\n');
 
-        wprintf(L"Digite a categoria: ");
+        wprintf(L"Digite a categoria (até 100 caracteres): ");
         fgetws(lt->tarefas[lt->qtd].categoria, sizeof(lt->tarefas[lt->qtd].categoria), stdin);
 
         // Limpando o buffer do teclado antes de ler a descrição
         while (getchar() != '\n');
 
-        wprintf(L"Digite a descrição: ");
+        wprintf(L"Digite a descrição (até 300 caracteres): ");
         fgetws(lt->tarefas[lt->qtd].descricao, sizeof(lt->tarefas[lt->qtd].descricao), stdin);
 
         printf("Digite a prioridade (de 1 a 10): ");

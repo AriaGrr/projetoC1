@@ -36,6 +36,7 @@ int main (){
             system(CLEAR_SCREEN);
         } else if (opcao == 2){
             deletarTarefa(&lt);
+            system(CLEAR_SCREEN);
         } else if (opcao == 3){
             system(CLEAR_SCREEN);
             listarTarefa(lt);

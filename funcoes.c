@@ -1,7 +1,6 @@
 #include "funcoes.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <locale.h>
 #include <string.h>
 
 // Cria uma nova tarefa e adiciona na lista
@@ -12,25 +11,28 @@ int criarTarefa(ListaDeTarefas *lt) {
         // Limpando o buffer do teclado antes de ler a categoria
         while (getchar() != '\n');
 
-        wprintf(L"Digite a categoria (até 100 caracteres): ");
-        fgetws(lt->tarefas[lt->qtd].categoria, sizeof(lt->tarefas[lt->qtd].categoria), stdin);
+        printf("Digite a categoria (até 100 caracteres): ");
+        fgets(lt->tarefas[lt->qtd].categoria, sizeof(lt->tarefas[lt->qtd].categoria), stdin);
 
         // Limpando o buffer do teclado antes de ler a descrição
         while (getchar() != '\n');
 
-        wprintf(L"Digite a descrição (até 300 caracteres): ");
-        fgetws(lt->tarefas[lt->qtd].descricao, sizeof(lt->tarefas[lt->qtd].descricao), stdin);
+        printf("Digite a descrição (até 300 caracteres): ");
+        fgets(lt->tarefas[lt->qtd].descricao, sizeof(lt->tarefas[lt->qtd].descricao), stdin);
 
+        
         printf("Digite a prioridade (de 1 a 10): ");
         scanf("%d", &lt->tarefas[lt->qtd].prioridade);
 
         lt->qtd++;
         return 0;
     } else {
-        wprintf(L"Lista de tarefas está cheia.\n");
+        printf("Lista de tarefas está cheia.\n");
         return 1;
     }
+
 }
+        
 
 // Deleta uma tarefa da lista
 int deletarTarefa(ListaDeTarefas *lt) {
@@ -38,7 +40,7 @@ int deletarTarefa(ListaDeTarefas *lt) {
         printf("Deletar tarefa:\n");
         int pos;
 
-        wprintf(L"Digite a posição da tarefa (1 a 100): ");
+        printf("Digite a posição da tarefa (1 a 100): ");
         scanf("%d", &pos);
         pos--;
 
@@ -50,7 +52,7 @@ int deletarTarefa(ListaDeTarefas *lt) {
             lt->qtd--;
             return 0;
         } else {
-            wprintf(L"Posição invalida.\n");
+            printf("Posição invalida.\n");
             return 1;
         }
     } else {
@@ -66,14 +68,14 @@ int listarTarefa(ListaDeTarefas lt) {
     printf("\n");
     
     if (lt.qtd == 0) {
-        wprintf(L"A lista de tarefas está vazia.\n");
+        printf("A lista de tarefas está vazia.\n");
         return 1; 
     }
 
     for (int i = 0; i < lt.qtd; i++) {
         printf("Tarefa %d\n", i + 1);
-        wprintf(L"Categoria: %s", lt.tarefas[i].categoria);
-        wprintf(L"Descrição: %ls", lt.tarefas[i].descricao);
+        printf("Categoria: %s", lt.tarefas[i].categoria);
+        printf("Descrição: %s", lt.tarefas[i].descricao);
         printf("Prioridade: %d\n", lt.tarefas[i].prioridade);
         printf("\n");
     }
@@ -83,13 +85,12 @@ int listarTarefa(ListaDeTarefas lt) {
 
 // Mostra o menu
 void printMenu(){
-    setlocale(LC_ALL, "Portuguese");
     printf("Menu\n");
     printf("1 - Criar tarefa\n");
     printf("2 - Deletar tarefa\n");
     printf("3 - Listar tarefas\n");
     printf("0 - Sair\n");
-    wprintf(L"Digite a opção desejada: ");
+    printf("Digite a opção desejada: ");
 }
 
 // Salva a lista de tarefas em um arquivo

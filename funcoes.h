@@ -2,9 +2,8 @@
 
 typedef struct {
     int prioridade;
-    // Mudei o char para wchar_t, para que o programa aceite caracteres especiais
-    wchar_t categoria[100];
-    wchar_t descricao[300];
+    char categoria[100];
+    char descricao[300];
 } Tarefa;
 
 typedef struct {

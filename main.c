@@ -1,18 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <locale.h>
 #include "funcoes.h"
+// Grupo ->
+// Nome: Marjorie Luize Martins Costa
+// RA: 242230845
+// Nome: Antonio Roth Gorham
+// RA: 241230788
 
-#ifdef _WIN32 // Verifica se é Windows
-    #define CLEAR_SCREEN "cls"
-    #define PAUSE "pause"
-#else
-    #define CLEAR_SCREEN "clear"
-    #define PAUSE "read -p 'Pressione Enter para continuar...' -n1 -s"
-#endif
-
-int main (){
-    setlocale(LC_ALL, "Portuguese");
+int main(){
 
     int cod;
     char arquivo[] = "tarefas";
@@ -33,21 +28,21 @@ int main (){
         else if (opcao == 1){
             criarTarefa(&lt);
             // Limpar o terminal
-            system(CLEAR_SCREEN);
+            system("clear");
         } else if (opcao == 2){
             deletarTarefa(&lt);
-            system(CLEAR_SCREEN);
+            system("clear");
         } else if (opcao == 3){
-            system(CLEAR_SCREEN);
+            system("clear");
             listarTarefa(lt);
             
             printf("Pressione Enter para voltar ao menu...");
             getchar(); // Captura o Enter
             getchar(); // Aguarda o próximo Enter
 
-            system(CLEAR_SCREEN);
+            system("clear");
         } else {
-            wprintf(L"Opção não existe!\n");
+            printf("Opção não existe!\n");
         }
     } while (opcao != 0);
 
